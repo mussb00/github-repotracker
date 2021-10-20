@@ -27,7 +27,7 @@ const Repositories = () => {
     }
     return (
         <div>
-            <h1>HIIIIIII</h1>
+            <h2>Repo Tracker</h2>
             <Stack spacing={2}>
             {renderRepos()}
             </Stack>
