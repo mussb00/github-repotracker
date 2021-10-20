@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import {Button, TextField, InputAdornment} from '@mui/material'
-import {AccountCircle} from '@mui/icons-material'
+import {AccountCircle, Collections} from '@mui/icons-material'
 
 const HomePage = () => {
     const [userName, setUserName] = useState('')
@@ -10,15 +10,18 @@ const HomePage = () => {
         setUserName(e.target.value)
     }
 
-    const handleSubmit = () => {
-        // if fetch returns error display the error (e.g. 'no user')
-        // otherwise change appState and 
+    const handleSubmit = async e => {
+        e.preventDefault()
+        const response = await fetch(`https://api.github.com/users/${userName}/repos`)
+        const data = await response.json()
+        console.log(data)
+        console.log(userName)
         setUserName('')
     }
     return (
         <div>
-            <form>
-            <TextField 
+            <form onSubmit={handleSubmit}>
+            {/* <TextField 
             variant="filled" 
             label="GitHub Username" 
             onChange={handleInputChange}
@@ -28,8 +31,9 @@ const HomePage = () => {
                     <AccountCircle />
                   </InputAdornment>
                 ),
-              }}/>
-            <Button variant="contained" color="success" onClick={handleSubmit}>Search</Button>
+              }}/> */}
+              <input type="text" onChange={handleInputChange}/>
+            <Button type="submit" variant="contained" color="success">Search</Button>
             </form>
         </div>
     )
