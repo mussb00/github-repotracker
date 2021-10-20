@@ -5,7 +5,7 @@ import Repositories from './Components/Repositories';
 import { RepoContext } from './Context/Contexts';
 function App() {
   const [appState, setAppState] = useState('home')
-  const [repos, setRepos] = useState([])
+  const [repos, setRepos] = useState()
   const [userName, setUserName] = useState('')
   return (
     <div className="App">

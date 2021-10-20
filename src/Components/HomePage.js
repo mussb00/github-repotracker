@@ -8,7 +8,7 @@ const HomePage = () => {
 
     const handleSubmit =  e => {
         e.preventDefault()
-        console.log(e)
+        
         setUserName(e.target[0].value)
         setAppState('repositories')
         e.target.reset()

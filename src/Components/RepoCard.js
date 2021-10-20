@@ -1,11 +1,17 @@
 import React from 'react'
 
-const RepoCard = ({userName, name}) => {
+const RepoCard = ({userName}) => {
+    useEffect(() => {
+        async function getCat(){
+            let data = await fetch(`https://api.github.com/users/${userName}/repos`)
+
+        }
+        getCat()
+    }, [ userName ])
 
     return (
         <div>
-            <p>{userName}</p>
-            <p>{name}</p>
+            
         </div>
     )
 
