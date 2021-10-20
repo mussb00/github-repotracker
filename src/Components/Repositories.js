@@ -1,6 +1,7 @@
 import React, {useContext, useState, useEffect} from 'react'
 import { RepoContext } from '../Context/Contexts'
 import RepoCard from './RepoCard'
+import Stack from '@mui/material/Stack';
 
 
 const Repositories = () => {
@@ -22,12 +23,14 @@ const Repositories = () => {
 
     const renderRepos = () => {
         console.log(repos)
-        return repos.map(r => <RepoCard userName = {userName} name={r.name}/>)
+        return repos.map(r => <RepoCard userName={userName} name={r.name} forks={r.forks} key={r.id}/>)
     }
     return (
         <div>
             <h1>HIIIIIII</h1>
-            <p>{renderRepos()}</p>
+            <Stack spacing={2}>
+            {renderRepos()}
+            </Stack>
         </div>
 
     )

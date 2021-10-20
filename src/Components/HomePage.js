@@ -15,19 +15,19 @@ const HomePage = () => {
     }
     return (
         <div>
+            <h1>Repo Tracker</h1>
             <form onSubmit={handleSubmit}>
-            {/* <TextField 
+            <TextField 
             variant="filled" 
             label="GitHub Username" 
-            onChange={handleInputChange}
+            type="text"
             InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
                     <AccountCircle />
                   </InputAdornment>
                 ),
-              }}/> */}
-              <input type="text"/>
+              }}/>
             <Button type="submit" variant="contained" color="success">Search</Button>
             </form>
         </div>
