@@ -4,3 +4,12 @@
     align-items: center;
     margin-top: 150px;;
 }
+
+.inputdiv{
+    margin-bottom: 5px;
+}
+
+.button{
+    margin-top: 5px;
+    margin-left: 150px;
+}

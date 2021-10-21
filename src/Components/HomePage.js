@@ -18,23 +18,28 @@ const HomePage = () => {
     return (
         <div className={styles.form}>
             <form onSubmit={handleSubmit}>
-            <TextField 
-            variant="filled" 
-            label="GitHub Username" 
-            type="text"
-            sx={{ 
-              mt: 5
-            }}
-            InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <AccountCircle />
-                  </InputAdornment>
-                ),
-              }}/>
+            <div className={styles.inputDiv}>
+              <TextField 
+              variant="filled" 
+              label="GitHub Username" 
+              type="text"
+              sx={{ 
+                mt: 5
+              }}
+              InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <AccountCircle />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </div>
+            <div>
             <Button type="submit" variant="contained" color="success" sx={{ 
               mt: 6
-            }}>Search</Button>
+            }} className={styles.button}>Search</Button>
+            </div>
             </form>
         </div>
     )
