@@ -1,20 +1,37 @@
 import React, {useState, useContext} from 'react'
 import { RepoContext } from '../Context/Contexts'
-import {Button, TextField, InputAdornment} from '@mui/material'
+import {Button, TextField, InputAdornment,Snackbar, Alert} from '@mui/material'
 import {AccountCircle, Collections} from '@mui/icons-material'
 import styles from './HomePage.module.css'
 import { style } from '@mui/material/node_modules/@mui/system'
 
 const HomePage = () => {
     const {setAppState, setUserName} = useContext(RepoContext)
+    const [open, setOpen] = useState(false)
 
+    
+    const handleClose = (event, reason) => {
+      if (reason === 'clickaway'){
+        return 
+      }
+      
+      setOpen(false)
+    }
+    
+    let errorMessage = "The username cannot be empty."
     const handleSubmit =  e => {
-        e.preventDefault()
-        console.log(e)
+      e.preventDefault()
+      if(!e.target[0].value){
+        console.log('heloooo')
+      } else {
         setUserName(e.target[0].value)
         setAppState('repositories')
-        e.target.reset()
+      }
+      e.target.reset()
+      setOpen(true)
+
     }
+
     return (
         <div className={styles.form}>
             <form onSubmit={handleSubmit}>
@@ -39,6 +56,11 @@ const HomePage = () => {
             <Button type="submit" variant="contained" color="success" sx={{ 
               mt: 6
             }} className={styles.button}>Search</Button>
+            <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
+              <Alert onClose = {handleClose} severity = "error" sx={{ width: '100%' }}>
+                {errorMessage}
+              </Alert>
+            </Snackbar>
             </div>
             </form>
         </div>
