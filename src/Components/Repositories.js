@@ -11,7 +11,9 @@ const Repositories = () => {
     const fetchRepos = async () => {
        let repo = await fetch(`https://api.github.com/users/${userName}/repos`)
         let data = await repo.json()
-        if (data.message) {setError('Error Status: 404 Not Found\n Sorry, this user does not exist')};
+        if (data.message) {
+            setError('Error Status: 404 Not Found\n Sorry, this user does not exist')
+        return};
         console.log(data)
         setAvatar(data[0].owner.avatar_url)
         setRepos(data)

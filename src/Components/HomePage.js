@@ -21,13 +21,13 @@ const HomePage = () => {
     const handleSubmit =  e => {
       e.preventDefault()
       if(!e.target[0].value){
-        console.log('heloooo')
+        setOpen(true)
       } else {
         setUserName(e.target[0].value)
         setAppState('repositories')
       }
       e.target.reset()
-      setOpen(true)
+    
 
     }
 
