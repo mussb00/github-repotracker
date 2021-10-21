@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import HomePage from './Components/HomePage';
+import Repositories from './Components/Repositories';
+import { RepoContext } from './Context/Contexts';
+import ButtonAppBar from './Components/NavigationBar';
+
 
 function App() {
+  const [appState, setAppState] = useState('home')
+  const [repos, setRepos] = useState([])
+  const [userName, setUserName] = useState('')
+  const [avatar, setAvatar] = useState()
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <RepoContext.Provider value={{appState, setAppState, repos, setRepos, userName, setUserName, avatar, setAvatar}}>
+      <ButtonAppBar/>
+      {/* import material-ui navbar here, black background color, white text, github logo, some redundant links */}
+      {appState === 'home' && <HomePage/>}
+      {appState === 'repositories' && <Repositories/>}
+      </RepoContext.Provider>
     </div>
   );
 }
