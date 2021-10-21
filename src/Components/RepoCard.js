@@ -1,9 +1,8 @@
 import React from 'react'
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
-import AltRouteIcon from '@mui/icons-material/AltRoute';
 
-const RepoCard = ({userName, name, forks}) => {
+const RepoCard = ({userName, name, forks, issues, stars}) => {
 
     return (
         <div>
@@ -14,9 +13,11 @@ const RepoCard = ({userName, name, forks}) => {
             </a>
         </Typography>
         <Typography variant="caption">
-            {userName} 
+            {userName} &nbsp;
+             <i class="fas fa-code-branch"></i> {forks}&nbsp;
+             <i class="far fa-dot-circle"></i> {issues}&nbsp;
+             <i class="far fa-star"></i> {stars} 
 
-            <AltRouteIcon/>{forks}
         </Typography>
     </Paper>
 

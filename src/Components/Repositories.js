@@ -24,7 +24,7 @@ const Repositories = () => {
     }, [userName])
 
     const renderRepos = () => {
-        return repos.map(r => <RepoCard userName={userName} name={r.name} forks={r.forks} key={r.id} url={r.url}/>)
+        return repos.map(r => <RepoCard userName={userName} name={r.name} forks={r.forks} key={r.id} issues={r.open_issues} stars={r.stargazers_count}/>)
     }
     return (
         <div className={styles.center}>
