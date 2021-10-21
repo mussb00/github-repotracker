@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {useContext} from 'react'
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -7,10 +8,18 @@ import IconButton from '@mui/material/IconButton';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import {useHistory} from 'react-router-dom'
+import {RepoContext} from '../Context/Contexts'
 
 export default function ButtonAppBar() {
-  const history = useHistory()
+  const {appState, setAppState} = useContext(RepoContext)
+  const history = () => {
+    // console.log(appState)
+    if (appState === 'repositories') {
+      setAppState('home')
+    } else {
+      setAppState('repositories')
+    }
+  }
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -36,7 +45,7 @@ export default function ButtonAppBar() {
           >
               <NotificationsNoneIcon/>
           </IconButton>
-          <div onClick={() => history.goBack}>
+          <div onClick={history}>
           <IconButton size="large"
             edge="start"
             color="inherit"

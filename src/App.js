@@ -12,9 +12,9 @@ function App() {
   const [userName, setUserName] = useState('')
   return (
     <div className="App">
+      <RepoContext.Provider value={{appState, setAppState, repos, setRepos, userName, setUserName}}>
       <ButtonAppBar/>
       {/* import material-ui navbar here, black background color, white text, github logo, some redundant links */}
-      <RepoContext.Provider value={{appState, setAppState, repos, setRepos, userName, setUserName}}>
       {appState === 'home' && <HomePage/>}
       {appState === 'repositories' && <Repositories/>}
       </RepoContext.Provider>
