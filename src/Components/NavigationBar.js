@@ -11,11 +11,12 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import {RepoContext} from '../Context/Contexts'
 
 export default function ButtonAppBar() {
-  const {appState, setAppState} = useContext(RepoContext)
+  const {appState, setAppState, avatar, setAvatar} = useContext(RepoContext)
   const history = () => {
     // console.log(appState)
     if (appState === 'repositories') {
       setAppState('home')
+      setAvatar('')
     } else {
       setAppState('repositories')
     }
@@ -54,6 +55,7 @@ export default function ButtonAppBar() {
               <ArrowBackIcon/>
           </IconButton>
           </div>
+          <img src = {avatar} style={{width:"30px", borderRadius: "50%", marginTop: "1px" }}/>
         </Toolbar>
       </AppBar>
     </Box>

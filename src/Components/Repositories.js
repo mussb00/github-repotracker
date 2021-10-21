@@ -6,13 +6,14 @@ import styles from './HomePage.module.css'
 
 
 const Repositories = () => {
-    const {repos, userName, setRepos} = useContext(RepoContext)
+    const {repos, userName, setRepos, setAvatar} = useContext(RepoContext)
     const [error, setError] = useState('')
     const fetchRepos = async () => {
        let repo = await fetch(`https://api.github.com/users/${userName}/repos`)
         let data = await repo.json()
         if (data.message) {setError('Error Status: 404 Not Found\n Sorry, this user does not exist')};
         console.log(data)
+        setAvatar(data[0].owner.avatar_url)
         setRepos(data)
         }
     

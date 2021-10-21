@@ -8,7 +8,6 @@ import { style } from '@mui/material/node_modules/@mui/system'
 const HomePage = () => {
     const {setAppState, setUserName} = useContext(RepoContext)
     const [open, setOpen] = useState(false)
-
     
     const handleClose = (event, reason) => {
       if (reason === 'clickaway'){
