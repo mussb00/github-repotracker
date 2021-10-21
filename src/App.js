@@ -1,4 +1,3 @@
-import './App.css';
 import { useState } from 'react';
 import HomePage from './Components/HomePage';
 import Repositories from './Components/Repositories';

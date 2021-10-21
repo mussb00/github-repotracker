@@ -2,6 +2,8 @@ import React, {useState, useContext} from 'react'
 import { RepoContext } from '../Context/Contexts'
 import {Button, TextField, InputAdornment} from '@mui/material'
 import {AccountCircle, Collections} from '@mui/icons-material'
+import styles from './HomePage.module.css'
+import { style } from '@mui/material/node_modules/@mui/system'
 
 const HomePage = () => {
     const {setAppState, setUserName} = useContext(RepoContext)
@@ -14,7 +16,7 @@ const HomePage = () => {
         e.target.reset()
     }
     return (
-        <div>
+        <div className={styles.form}>
             <form onSubmit={handleSubmit}>
             <TextField 
             variant="filled" 
