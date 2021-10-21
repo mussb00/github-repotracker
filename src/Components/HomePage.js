@@ -15,7 +15,6 @@ const HomePage = () => {
     }
     return (
         <div>
-            <h1>Repo Tracker</h1>
             <form onSubmit={handleSubmit}>
             <TextField 
             variant="filled" 

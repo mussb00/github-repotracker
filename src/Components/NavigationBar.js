@@ -6,8 +6,11 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import {useHistory} from 'react-router-dom'
 
 export default function ButtonAppBar() {
+  const history = useHistory()
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -22,7 +25,7 @@ export default function ButtonAppBar() {
             <GitHubIcon/>
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
+            Repo Tracker
           </Typography>
           <IconButton
             size="large"
@@ -33,6 +36,15 @@ export default function ButtonAppBar() {
           >
               <NotificationsNoneIcon/>
           </IconButton>
+          <div onClick={() => history.goBack}>
+          <IconButton size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}>
+              <ArrowBackIcon/>
+          </IconButton>
+          </div>
         </Toolbar>
       </AppBar>
     </Box>

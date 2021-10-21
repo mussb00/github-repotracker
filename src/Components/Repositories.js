@@ -23,12 +23,11 @@ const Repositories = () => {
 
     const renderRepos = () => {
         console.log(repos)
-        return repos.map(r => <RepoCard userName={userName} name={r.name} forks={r.forks} key={r.id}/>)
+        return repos.map(r => <RepoCard userName={userName} name={r.name} forks={r.forks} key={r.id} url={r.url}/>)
     }
     return (
         <div>
-            <h2>Repo Tracker</h2>
-            <Stack spacing={2}>
+            <Stack spacing={2} sx={{mt: 3}}>
             {renderRepos()}
             </Stack>
         </div>
