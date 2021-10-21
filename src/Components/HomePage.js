@@ -20,6 +20,9 @@ const HomePage = () => {
             variant="filled" 
             label="GitHub Username" 
             type="text"
+            sx={{ 
+              mt: 5
+            }}
             InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
@@ -27,7 +30,9 @@ const HomePage = () => {
                   </InputAdornment>
                 ),
               }}/>
-            <Button type="submit" variant="contained" color="success">Search</Button>
+            <Button type="submit" variant="contained" color="success" sx={{ 
+              mt: 6
+            }}>Search</Button>
             </form>
         </div>
     )
