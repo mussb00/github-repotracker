@@ -15,6 +15,7 @@ export default function ButtonAppBar() {
   const history = () => {
     // console.log(appState)
     if (appState === 'repositories') {
+      console.log('hiiii')
       setAppState('home')
       setAvatar('')
     } else {
@@ -44,13 +45,13 @@ export default function ButtonAppBar() {
             aria-label="menu"
             sx={{ mr: 2 }}
           >
-              <NotificationsNoneIcon/>
+            <NotificationsNoneIcon/>
           </IconButton>
           <div onClick={history}>
           <IconButton size="large"
             edge="start"
             color="inherit"
-            aria-label="menu"
+            aria-label="backBtn"
             sx={{ mr: 2 }}>
               <ArrowBackIcon/>
           </IconButton>

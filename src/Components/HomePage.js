@@ -35,7 +35,8 @@ const HomePage = () => {
         <div className={styles.form}>
             <form onSubmit={handleSubmit}>
             <div className={styles.inputDiv}>
-              <TextField 
+              <TextField
+              aria-label="input"
               variant="filled" 
               label="GitHub Username" 
               type="text"

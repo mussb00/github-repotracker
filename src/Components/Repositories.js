@@ -9,11 +9,12 @@ const Repositories = () => {
     const {repos, userName, setRepos, setAvatar} = useContext(RepoContext)
     const [error, setError] = useState('')
     const fetchRepos = async () => {
-       let repo = await fetch(`https://api.github.com/users/${userName}/repos`)
+        let repo = await fetch(`https://api.github.com/users/${userName}/repos`)
         let data = await repo.json()
         if (data.message) {
             setError('Error Status: 404 Not Found\n Sorry, this user does not exist')
         return};
+        // add a return, obj returned for nonexistent user has no owner property
         console.log(data)
         setAvatar(data[0].owner.avatar_url)
         setRepos(data)
@@ -31,7 +32,7 @@ const Repositories = () => {
     }
     return (
         <div className={styles.center}>
-            {error? <p >{error}</p>: 
+            {error? <p role="para">{error}</p>: 
             <Stack spacing={2} sx={{mt: 3, mb: 3}}>
             {renderRepos()}
             </Stack>
